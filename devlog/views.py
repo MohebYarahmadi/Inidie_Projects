@@ -5,3 +5,13 @@ from django.shortcuts import render, get_object_or_404
 # from devlog.models import Post
 
 # Create your views here.
+def devlog_home(request):
+    pass
+
+
+def devlog_search(request):
+    pass
+
+
+def post_detail(request):
+    pass

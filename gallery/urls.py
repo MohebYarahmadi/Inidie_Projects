@@ -16,7 +16,8 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('', gallery_home, name='gallery_home'),
+    path('', views.gallery_home, name='gallery_home'),
 ]
