@@ -18,6 +18,8 @@ Including another URLconf
 from django.urls import path
 from . import views
 
+app_name = 'devlog'
+
 urlpatterns = [
     path('', views.devlog_home, name='devlog_home'),
     path('category/<slug:cat_slug>/', views.devlog_home, name='post-by-category'),
