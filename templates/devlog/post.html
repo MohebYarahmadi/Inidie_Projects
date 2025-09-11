@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project Name - Blog Post</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://godotengine.org/assets/press/logo_large.png" alt="Logo">
+                <div class="logo-text">Your Project</div>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="showcase.html">Showcase</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Blog Post</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li>Introducing Our Latest Update: Version 2.0</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <div class="container blog-container">
+        <main class="blog-main">
+            <article class="single-post">
+                <img src="https://via.placeholder.com/1200x600/478cbf/ffffff?text=Featured+Post" alt="Featured Post" class="post-image">
+                <div class="post-header">
+                    <div class="post-meta">
+                        <img src="https://via.placeholder.com/100/478cbf/ffffff?text=A" alt="Author" class="post-author-img">
+                        <span>By Admin • June 15, 2023 • 5 min read</span>
+                    </div>
+                    <h1 class="post-title">Introducing Our Latest Update: Version 2.0</h1>
+                </div>
+
+                <div class="post-content">
+                    <p>We're excited to announce the release of version 2.0, packed with new features, performance improvements, and bug fixes. This update represents a major milestone in our project's development.</p>
+
+                    <h2>What's New in Version 2.0</h2>
+                    <p>After months of development and testing, we're proud to present the most significant update to our platform yet. Here are some of the key improvements:</p>
+
+                    <h3>Redesigned User Interface</h3>
+                    <p>We've completely overhauled the user interface to make it more intuitive and user-friendly. The new design focuses on workflow efficiency and reduces clutter.</p>
+                    <img src="https://via.placeholder.com/800x400/3a74a2/ffffff?text=New+UI" alt="New User Interface">
+
+                    <h3>Enhanced Performance</h3>
+                    <p>Version 2.0 includes significant performance optimizations, with up to 40% faster load times and improved memory management.</p>
+
+                    <blockquote>
+                        "This update represents our commitment to providing the best possible experience for our users while maintaining the flexibility and power that makes our platform unique."
+                    </blockquote>
+
+                    <h3>New Export Options</h3>
+                    <p>We've added support for several new export targets, making it easier to deploy your projects to various platforms and devices.</p>
+
+                    <h3>Improved Documentation</h3>
+                    <p>Our documentation has been completely rewritten and expanded, with new tutorials, examples, and API references.</p>
+
+                    <pre><code>function newFeature() {
+    console.log("This is a code sample");
+    return "Hello World";
+}</code></pre>
+
+                    <h2>Getting Started with Version 2.0</h2>
+                    <p>To upgrade to the latest version, simply download the update from our website or use the built-in update checker. If you encounter any issues, please check our migration guide for assistance.</p>
+
+                    <p>We're confident that you'll love the new features and improvements in version 2.0. As always, we welcome your feedback and suggestions for future updates.</p>
+
+                    <div class="post-tags">
+                        <a href="#" class="tag">Update</a>
+                        <a href="#" class="tag">Release</a>
+                        <a href="#" class="tag">Version 2.0</a>
+                        <a href="#" class="tag">Features</a>
+                    </div>
+
+                    <div class="post-navigation">
+                        <a href="#" class="btn"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                        <a href="#" class="btn">Next Post <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h3>Search</h3>
+                <form>
+                    <input type="text" placeholder="Search..." style="width: 100%; padding: 10px; border: 1px solid var(--gray); border-radius: 4px;">
+                </form>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Categories</h3>
+                <ul class="categories-list">
+                    <li><a href="#">Updates <span>(12)</span></a></li>
+                    <li><a href="#">Tutorials <span>(24)</span></a></li>
+                    <li><a href="#">News <span>(8)</span></a></li>
+                    <li><a href="#">Releases <span>(15)</span></a></li>
+                    <li><a href="#">Events <span>(5)</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Popular Tags</h3>
+                <div class="tags-cloud">
+                    <a href="#" class="tag">Update</a>
+                    <a href="#" class="tag">Tutorial</a>
+                    <a href="#" class="tag">Version 2.0</a>
+                    <a href="#" class="tag">Bugfix</a>
+                    <a href="#" class="tag">Documentation</a>
+                    <a href="#" class="tag">Performance</a>
+                    <a href="#" class="tag">UI</a>
+                    <a href="#" class="tag">Export</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Recent Posts</h3>
+                <ul class="categories-list">
+                    <li><a href="#">Introducing Our Latest Update: Version 2.0</a></li>
+                    <li><a href="#">How to Optimize Performance in Large Projects</a></li>
+                    <li><a href="#">Getting Started: A Beginner's Tutorial</a></li>
+                    <li><a href="#">Upcoming Community Event: Join Us Online</a></li>
+                    <li><a href="#">Behind the Scenes: Developing New Features</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Project</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Release Notes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">API Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Your Project Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

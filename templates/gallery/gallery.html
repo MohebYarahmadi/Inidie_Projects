@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Project Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles and reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #478cbf;
+            --primary-dark: #3a74a2;
+            --secondary: #414042;
+            --accent: #ff7c00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #e06d00;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        nav ul li a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+
+        .breadcrumb li:after {
+            content: "/";
+            margin-left: 10px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .breadcrumb li:last-child:after {
+            content: "";
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .breadcrumb a:hover {
+            color: white;
+        }
+
+        /* Blog Page Styles */
+        .blog-container {
+            display: flex;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .blog-main {
+            flex: 2;
+        }
+
+        .blog-sidebar {
+            flex: 1;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .post-header {
+            padding: 30px 30px 0;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .post-author-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .post-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .post-excerpt {
+            padding: 0 30px 30px;
+            color: #555;
+        }
+
+        .post-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        /* Sidebar Styles */
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--gray);
+            color: var(--secondary);
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .categories-list li:last-child {
+            border-bottom: none;
+        }
+
+        .categories-list a {
+            display: flex;
+            justify-content: space-between;
+            color: #555;
+        }
+
+        .categories-list a:hover {
+            color: var(--primary);
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: var(--light);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+            transition: all 0.3s;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Showcase Page Styles */
+        .showcase-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid var(--gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        .showcase-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .showcase-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .showcase-content {
+            padding: 20px;
+        }
+
+        .showcase-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .showcase-desc {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .showcase-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .page-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background: white;
+            color: var(--dark);
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-link.active, .page-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 968px) {
+            .blog-container {
+                flex-direction: column;
+            }
+
+            .blog-sidebar {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://godotengine.org/assets/press/logo_large.png" alt="Logo">
+                <div class="logo-text">Your Project</div>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="showcase.html" class="active">Showcase</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Learn</a></li>
+                    <li><a href="#">Community</a></li>
+                </ul>
+                <div class="mobile-menu-btn" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Project Showcase</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Showcase</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Showcase Filters -->
+    <div class="container">
+        <div class="showcase-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Games</button>
+            <button class="filter-btn">Applications</button>
+            <button class="filter-btn">Tools</button>
+            <button class="filter-btn">3D</button>
+            <button class="filter-btn">2D</button>
+        </div>
+    </div>
+
+    <!-- Showcase Grid -->
+    <div class="container">
+        <div class="showcase-grid">
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/478cbf/ffffff?text=Project+1" alt="Project 1" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Adventure Quest</h3>
+                    <p class="showcase-desc">An epic RPG adventure with stunning visuals and engaging gameplay.</p>
+                    <div class="showcase-meta">
+                        <span>Game</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/3a74a2/ffffff?text=Project+2" alt="Project 2" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Productivity Suite</h3>
+                    <p class="showcase-desc">A comprehensive set of tools to boost your productivity and organization.</p>
+                    <div class="showcase-meta">
+                        <span>Application</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/ff7c00/ffffff?text=Project+3" alt="Project 3" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Pixel Art Editor</h3>
+                    <p class="showcase-desc">Create stunning pixel art with this intuitive and powerful editor.</p>
+                    <div class="showcase-meta">
+                        <span>Tool</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/414042/ffffff?text=Project+4" alt="Project 4" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Space Explorer</h3>
+                    <p class="showcase-desc">Explore the vastness of space in this immersive 3D experience.</p>
+                    <div class="showcase-meta">
+                        <span>Game</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/478cbf/ffffff?text=Project+5" alt="Project 5" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">UI Design Tool</h3>
+                    <p class="showcase-desc">Design beautiful user interfaces with this powerful drag-and-drop tool.</p>
+                    <div class="showcase-meta">
+                        <span>Tool</span>
+                        <span>2022</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-item">
+                <img src="https://via.placeholder.com/600x400/3a74a2/ffffff?text=Project+6" alt="Project 6" class="showcase-image">
+                <div class="showcase-content">
+                    <h3 class="showcase-title">Platformer Game</h3>
+                    <p class="showcase-desc">A classic 2D platformer with modern mechanics and charming visuals.</p>
+                    <div class="showcase-meta">
+                        <span>Game</span>
+                        <span>2021</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Project</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Release Notes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Learn</h3>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">API Reference</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Your Project Name. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+            document.getElementById('nav-menu').classList.toggle('show');
+        });
+
+        // Filter buttons
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
